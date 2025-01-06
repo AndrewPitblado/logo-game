@@ -1,17 +1,43 @@
 import { db } from "~/server/db";
 import { SignedOut, SignedIn } from "@clerk/nextjs";
-import { getMyLogos } from "~/server/queries";
+import {
+  getGameStats,
+  getMyLogos,
+  getRandomLogo,
+  resetGameProgress,
+} from "~/server/queries";
+import { LogoQuizForm } from "./_components/LogoQuizForm";
+import { LogoQuizClient } from "./_components/LogoQuizClient";
+import { GameProvider } from "./_components/GameContext";
+import { ScoreBoard } from "./_components/Scoreboard";
 export const dynamic = "force-dynamic";
 
-async function logos() {
-  const images = await getMyLogos();
+async function LogoQuiz() {
+  const randomLogo = await getRandomLogo();
+  const stats = await getGameStats();
+
+  if (!randomLogo) {
+    resetGameProgress();
+    return (
+      <div className="text-center text-2xl">
+        <p>Congratulations! You have guessed all of the logos! </p>
+        <p>
+          Your final score is: {stats.guessed} out of {stats.total}
+        </p>
+      </div>
+    );
+  }
+  const logoWithCrop = {
+    ...randomLogo,
+    cropX: randomLogo.cropX ?? 0,
+    cropY: randomLogo.cropY ?? 0,
+    cropWidth: randomLogo.cropWidth ?? 100,
+    cropHeight: randomLogo.cropHeight ?? 100,
+  };
   return (
-    <div className="flex flex-wrap gap-4">
-      {images.map((image) => (
-        <div key={image.id} className="m-4">
-          <img src={image.url} alt={`Logo ${image.id}`} />
-        </div>
-      ))}
+    <div className="w-full max-w-2xl p-4">
+      <ScoreBoard />
+      <LogoQuizClient randomLogo={logoWithCrop} initialScore={stats.guessed} />
     </div>
   );
 }
@@ -24,7 +50,7 @@ export default async function HomePage() {
           Please sign in to play the Logo Game.
         </div>
       </SignedOut>
-      <SignedIn>{logos()}</SignedIn>
+      <SignedIn>{LogoQuiz()}</SignedIn>
     </main>
   );
 }

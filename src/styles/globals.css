@@ -1,7 +1,13 @@
+@import "react-image-crop/dist/ReactCrop.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   @apply bg-black text-white;
+}
+
+.ReactCrop__crop-selection {
+  border: 2px solid #fff;
 }
