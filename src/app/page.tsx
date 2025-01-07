@@ -48,6 +48,7 @@ export default async function HomePage() {
       <SignedOut>
         <div className="h-full w-full text-center text-2xl">
           Please sign in to play the Logo Game.
+          <a href="https://logo.dev">Logos provided by Logo.dev</a>
         </div>
       </SignedOut>
       <SignedIn>{LogoQuiz()}</SignedIn>

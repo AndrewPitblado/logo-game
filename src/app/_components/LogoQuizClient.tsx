@@ -82,6 +82,7 @@ export function LogoQuizClient({
       >
         Reset Game
       </button>
+      <a href="https://logo.dev">Logos provided by Logo.dev</a>
     </div>
   );
 }
