@@ -1,6 +1,6 @@
 export const defaultLogos = [
   {
-    url: "https://img.logo.dev/apple.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/apple.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Apple",
     isDefault: true,
     cropX: 50,
@@ -9,7 +9,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/nvidia.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/nvidia.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Nvidia",
     isDefault: true,
     cropX: 50,
@@ -18,7 +18,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/microsoft.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/microsoft.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Microsoft",
     isDefault: true,
     cropX: 50,
@@ -27,7 +27,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/google.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/google.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Google",
     isDefault: true,
     cropX: 50,
@@ -36,7 +36,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/amazon.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/amazon.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Amazon",
     isDefault: true,
     cropX: 50,
@@ -45,7 +45,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/facebook.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/facebook.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Facebook",
     isDefault: true,
     cropX: 50,
@@ -55,7 +55,7 @@ export const defaultLogos = [
   },
 
   {
-    url: "https://img.logo.dev/instagram.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/instagram.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Instagram",
     isDefault: true,
     cropX: 50,
@@ -64,7 +64,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/youtube.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/youtube.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Youtube",
     isDefault: true,
     cropX: 50,
@@ -73,7 +73,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/linkedin.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/linkedin.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Linkedin",
     isDefault: true,
     cropX: 50,
@@ -82,7 +82,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/spotify.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/spotify.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Spotify",
     isDefault: true,
     cropX: 50,
@@ -100,7 +100,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/x.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/x.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "X",
     isDefault: true,
     cropX: 50,
@@ -109,7 +109,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/tesla.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/tesla.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Tesla",
     isDefault: true,
     cropX: 50,
@@ -118,7 +118,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/uber.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/uber.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Uber",
     isDefault: true,
     cropX: 50,
@@ -127,7 +127,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/lyft.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/lyft.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Lyft",
     isDefault: true,
     cropX: 50,
@@ -136,7 +136,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/airbnb.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/airbnb.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Airbnb",
     isDefault: true,
     cropX: 50,
@@ -145,7 +145,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/zoom.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/zoom.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Zoom",
     isDefault: true,
     cropX: 50,
@@ -154,7 +154,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/slack.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/slack.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Slack",
     isDefault: true,
     cropX: 50,
@@ -163,7 +163,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/tiktok.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/tiktok.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Tiktok",
     isDefault: true,
     cropX: 50,
@@ -172,7 +172,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/pinterest.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/pinterest.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Pinterest",
     isDefault: true,
     cropX: 50,
@@ -181,7 +181,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/whatsapp.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/whatsapp.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Whatsapp",
     isDefault: true,
     cropX: 50,
@@ -190,7 +190,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/reebok.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/reebok.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Reebok",
     isDefault: true,
     cropX: 50,
@@ -199,7 +199,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/walmart.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/walmart.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Walmart",
     isDefault: true,
     cropX: 50,
@@ -208,7 +208,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/burgerking.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/burgerking.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "BurgerKing",
     isDefault: true,
     cropX: 50,
@@ -217,7 +217,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/mcdonalds.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/mcdonalds.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "McDonalds",
     isDefault: true,
     cropX: 50,
@@ -226,7 +226,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/disney.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/disney.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Disney",
     isDefault: true,
     cropX: 50,
@@ -235,7 +235,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/meta.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/meta.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png",
     name: "Meta",
     isDefault: true,
     cropX: 50,
@@ -244,7 +244,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/starbucks.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=150&retina=true",
+    url: "https://img.logo.dev/starbucks.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=150",
     name: "Starbucks",
     isDefault: true,
     cropX: 50,
