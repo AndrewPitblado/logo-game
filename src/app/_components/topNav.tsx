@@ -7,10 +7,13 @@ import { useGame } from "./GameContext";
 import { useEffect } from "react";
 export function TopNav() {
   const router = useRouter();
-  const { score, gameTimeRemaining, setGameTimeRemaining, setIsGameOver } =
+  const { score, gameTimeRemaining, setGameTimeRemaining, setIsGameOver, isGameStarted } =
     useGame();
 
   useEffect(() => {
+    if(!isGameStarted) return;
+
+
     const timer =
       gameTimeRemaining > 0 &&
       setInterval(() => {
@@ -24,7 +27,7 @@ export function TopNav() {
         });
       }, 1000);
     return () => clearInterval(timer as NodeJS.Timeout);
-  }, [gameTimeRemaining, setGameTimeRemaining, setIsGameOver]);
+  }, [gameTimeRemaining, setGameTimeRemaining, setIsGameOver, isGameStarted]);
 
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);

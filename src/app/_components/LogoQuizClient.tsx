@@ -23,11 +23,13 @@ export function LogoQuizClient({
   initialScore,
 }: LogoQuizClientProps) {
   const router = useRouter();
-  const { score, setScore, totalLogos } = useGame();
+  const { score, setScore, totalLogos, isGameStarted, setIsGameStarted } = useGame();
   const [isMounted, setIsMounted] = React.useState(false);
 
   useEffect(() => {
     setScore(initialScore);
+    setIsGameStarted(true);
+    return () => setIsGameStarted(false);
   }, [initialScore, setScore]);
 
   useEffect(() => {
@@ -76,6 +78,7 @@ export function LogoQuizClient({
         onClick={async () => {
           await fetch("/api/reset-game", { method: "POST" });
           setScore(0);
+          setIsGameStarted(false);
           router.refresh();
         }}
         className="mt-4 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
