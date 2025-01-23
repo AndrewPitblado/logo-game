@@ -17,7 +17,7 @@ async function LogoQuiz() {
   const stats = await getGameStats();
 
   if (!randomLogo) {
-    await resetGameProgress();
+     await resetGameProgress();
     return (
       <div className="text-center text-2xl">
         <p>Congratulations! You have guessed all of the logos! </p>
@@ -51,7 +51,7 @@ export default async function HomePage() {
           <a href="https://logo.dev">Logos provided by Logo.dev</a>
         </div>
       </SignedOut>
-      <SignedIn>{await LogoQuiz()}</SignedIn>
+      <SignedIn>{LogoQuiz()}</SignedIn>
     </main>
   );
 }
