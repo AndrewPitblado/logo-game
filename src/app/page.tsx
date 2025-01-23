@@ -51,7 +51,9 @@ export default async function HomePage() {
           <a href="https://logo.dev">Logos provided by Logo.dev</a>
         </div>
       </SignedOut>
-      <SignedIn>{LogoQuiz()}</SignedIn>
+      <SignedIn>
+        <LogoQuiz />
+      </SignedIn>
     </main>
   );
 }
