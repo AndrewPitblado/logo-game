@@ -1,9 +1,9 @@
 "use client";
 
+import { Param } from "drizzle-orm";
 import { useState, useEffect } from "react";
 import ReactCrop, { defaultCrop, type Crop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
-
 
 interface CroppedImageProps {
   src: string;
@@ -16,24 +16,49 @@ interface CroppedImageProps {
   };
 }
 
+function calculateAspectRatioFit(
+  srcWidth: number,
+  srcHeight: number,
+  maxWidth: number,
+  maxHeight: number,
+) {
+  const ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+  return { width: srcWidth * ratio, height: srcHeight * ratio };
+}
+
 export function CroppedImage({ src, alt, defaultCrop }: CroppedImageProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [crop, setCrop] = useState<Crop | undefined>();
-  const [rotation, setRotation] = useState(0)
-
-
+  const [rotation, setRotation] = useState(0);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      const { width, height } = calculateAspectRatioFit(
+        img.naturalWidth,
+        img.naturalHeight,
+        700, // container width
+        700, // container height
+      );
+      setDimensions({ width, height });
+      setScale(Math.max(700 / width, 700 / height));
+    };
+
     const rotations = [0, 90, 180, 270];
-    const randomRotation = rotations[Math.floor(Math.random() * rotations.length)]
+    const randomRotation =
+      rotations[Math.floor(Math.random() * rotations.length)];
     setIsMounted(true);
-    
+    setRotation(randomRotation!);
+
     setCrop({
       unit: "%",
-      x: 30,
-      y: 30,
-      width: 20,
-      height: 20,
+      x: 50,
+      y: 50,
+      width: 60, // slightly smaller crop area
+      height: 60,
       ...(defaultCrop && {
         x: defaultCrop.x,
         y: defaultCrop.y,
@@ -41,23 +66,26 @@ export function CroppedImage({ src, alt, defaultCrop }: CroppedImageProps) {
         height: defaultCrop.height,
       }),
     });
-  }, [defaultCrop]);
+  }, [src]);
 
   if (!isMounted) return <div className="h-64 w-64" />;
 
   return (
-    <div className="relative h-[300px] w-[300px] overflow-hidden rounded-lg border-2 border-gray-700">
+    <div className="relative h-[350px] w-[350px] overflow-hidden rounded-lg border-2 border-gray-700">
       {crop && (
         <div className="relative h-full w-full">
           <img
             src={src}
             alt={alt}
-            className="absolute left-1/2 top-1/2 max-h-[90%] max-w-[90%] -translate-x-1/2 -translate-y-1/2 transform object-contain"
+            className="absolute transform object-cover"
             style={{
-              transform: `translate(-${crop.x / 0.5}%, -${crop.y / 0.5}%) 
-              scale(2.0)
-              rotate(${rotation})`,
+              maxWidth: "none",
+              maxHeight: "none",
+              width: `${dimensions.width}px`,
+              height: `${dimensions.height}px`,
+              transform: `translate(-${crop.x}%, -${crop.y}%) scale(${scale}) rotate(${rotation}deg)`,
               transformOrigin: "center center",
+              imageRendering: "auto", // Changed from pixelated for better quality
             }}
           />
         </div>
