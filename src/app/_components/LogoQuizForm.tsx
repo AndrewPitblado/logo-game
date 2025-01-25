@@ -20,8 +20,8 @@ export function LogoQuizForm({
     setIncorrectGuesses,
     setScore,
     score,
-    totalLogos,
     isGameOver,
+    setIsGameStarted
   } = useGame();
   const router = useRouter();
 
@@ -29,18 +29,29 @@ export function LogoQuizForm({
     const timer =
       timeRemaining > 0 &&
       setInterval(
-        () => setTimeRemaining((prev: number) => Math.max(0, prev - 1)),
+        () => setTimeRemaining((prev: number) =>
+          Math.max(0, prev - 1)),
         1000,
       );
+    if (timeRemaining == 0){
+      setMessage("Time's up!");
+      setTimeRemaining(30);
+      setMessage("");
+      router.refresh();
+    }
     return () => clearInterval(timer as NodeJS.Timeout);
-  }, [timeRemaining, setTimeRemaining]);
+  }, [timeRemaining, setTimeRemaining, router]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+
+  const handleSubmit =
+    async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (timeRemaining <= 0) {
       setMessage("Time's up!");
+      setTimeRemaining(30);
       router.refresh();
+
       return;
     }
 
@@ -104,7 +115,19 @@ export function LogoQuizForm({
         >
           {message}
         </div>
+
       )}
+      <button
+        onClick={async () => {
+          await fetch("/api/reset-game", { method: "POST" });
+          setScore(0);
+          setIsGameStarted(false);
+          router.refresh();
+        }}
+        className="mt-4 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
+      >
+        Reset Game
+      </button>
     </form>
   );
 }

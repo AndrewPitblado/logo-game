@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import ReactCrop, { defaultCrop, type Crop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
+
 interface CroppedImageProps {
   src: string;
   alt: string;
@@ -18,10 +19,15 @@ interface CroppedImageProps {
 export function CroppedImage({ src, alt, defaultCrop }: CroppedImageProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [crop, setCrop] = useState<Crop | undefined>();
-  const [rotation, setRotation] = useState(0);
+  const [rotation, setRotation] = useState(0)
+
+
 
   useEffect(() => {
+    const rotations = [0, 90, 180, 270];
+    const randomRotation = rotations[Math.floor(Math.random() * rotations.length)]
     setIsMounted(true);
+    
     setCrop({
       unit: "%",
       x: 30,
@@ -40,7 +46,7 @@ export function CroppedImage({ src, alt, defaultCrop }: CroppedImageProps) {
   if (!isMounted) return <div className="h-64 w-64" />;
 
   return (
-    <div className="relative h-[350px] w-[350px] overflow-hidden rounded-lg border-2 border-gray-700">
+    <div className="relative h-[300px] w-[300px] overflow-hidden rounded-lg border-2 border-gray-700">
       {crop && (
         <div className="relative h-full w-full">
           <img
@@ -49,8 +55,8 @@ export function CroppedImage({ src, alt, defaultCrop }: CroppedImageProps) {
             className="absolute left-1/2 top-1/2 max-h-[90%] max-w-[90%] -translate-x-1/2 -translate-y-1/2 transform object-contain"
             style={{
               transform: `translate(-${crop.x / 0.5}%, -${crop.y / 0.5}%) 
-              scale(2.5)
-              rotate(-90deg)`,
+              scale(2.0)
+              rotate(${rotation})`,
               transformOrigin: "center center",
             }}
           />

@@ -74,17 +74,7 @@ export function LogoQuizClient({
         logoName={randomLogo.name}
         onCorrectGuessAction={handleCorrectGuess}
       />
-      <button
-        onClick={async () => {
-          await fetch("/api/reset-game", { method: "POST" });
-          setScore(0);
-          setIsGameStarted(false);
-          router.refresh();
-        }}
-        className="mt-4 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-      >
-        Reset Game
-      </button>
+      
       <a href="https://logo.dev">Logos provided by Logo.dev</a>
     </div>
   );
