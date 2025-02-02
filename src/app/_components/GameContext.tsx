@@ -20,7 +20,6 @@ interface GameContextType {
   setIsGameOver: (isGameOver: boolean) => void;
   isGameStarted: boolean;
   setIsGameStarted: (isGameStarted: boolean) => void;
-
 }
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
@@ -55,7 +54,7 @@ export function GameProvider({
         isGameOver,
         setIsGameOver,
         isGameStarted,
-        setIsGameStarted
+        setIsGameStarted,
       }}
     >
       {children}

@@ -6,6 +6,7 @@ import {
 import { LogoQuizClient } from "~/app/_components/LogoQuizClient";
 import { ScoreBoard } from "~/app/_components/Scoreboard";
 import PlayAgain from "~/app/_components/PlayAgain";
+import * as motion from "motion/react-client";
 import React from "react";
 
 export default async function LogoQuiz() {
@@ -14,14 +15,18 @@ export default async function LogoQuiz() {
 
   if (!randomLogo) {
     await resetGameProgress();
+
     return (
-      <div className="text-center text-2xl">
-        <p>Congratulations! You have guessed all of the logos! </p>
-        <p>
-          Your final score is: {stats.guessed} out of {stats.total}
-        </p>
-        <PlayAgain />
-      </div>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, scale: 1 }}>
+        <div className="p-5 text-center text-2xl">
+          <p>Congratulations! You have guessed all of the logos! </p>
+          <p>
+            Your final score is: {stats.guessed} out of {stats.total}
+          </p>
+          <br />
+          <PlayAgain />
+        </div>
+      </motion.div>
     );
   }
   const logoWithCrop = {
@@ -37,4 +42,7 @@ export default async function LogoQuiz() {
       <LogoQuizClient randomLogo={logoWithCrop} initialScore={stats.guessed} />
     </div>
   );
+}
+function useEffect(arg0: () => void, arg1: never[]) {
+  throw new Error("Function not implemented.");
 }

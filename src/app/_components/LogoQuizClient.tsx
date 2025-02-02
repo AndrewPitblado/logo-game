@@ -4,6 +4,7 @@ import { LogoQuizForm } from "./LogoQuizForm";
 import { useGame } from "./GameContext";
 import { CroppedImage } from "./CroppedImage";
 import { useEffect } from "react";
+import { motion } from "motion/react";
 interface LogoQuizClientProps {
   randomLogo: {
     url: string;
@@ -23,7 +24,8 @@ export function LogoQuizClient({
   initialScore,
 }: LogoQuizClientProps) {
   const router = useRouter();
-  const { score, setScore, totalLogos, isGameStarted, setIsGameStarted } = useGame();
+  const { score, setScore, totalLogos, isGameStarted, setIsGameStarted } =
+    useGame();
   const [isMounted, setIsMounted] = React.useState(false);
 
   useEffect(() => {
@@ -58,23 +60,33 @@ export function LogoQuizClient({
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="flex justify-center">
-        <CroppedImage
-          src={randomLogo.url}
-          alt={randomLogo.name}
-          defaultCrop={{
-            x: randomLogo.cropX,
-            y: randomLogo.cropY,
-            width: randomLogo.cropWidth,
-            height: randomLogo.cropHeight,
+        <motion.div
+          key={randomLogo.id}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.5,
+            scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
           }}
-        />
+        >
+          <CroppedImage
+            src={randomLogo.url}
+            alt={randomLogo.name}
+            defaultCrop={{
+              x: randomLogo.cropX,
+              y: randomLogo.cropY,
+              width: randomLogo.cropWidth,
+              height: randomLogo.cropHeight,
+            }}
+          />
+        </motion.div>
       </div>
 
       <LogoQuizForm
         logoName={randomLogo.name}
         onCorrectGuessAction={handleCorrectGuess}
       />
-      
+
       <a href="https://logo.dev">Logos provided by Logo.dev</a>
     </div>
   );

@@ -1,12 +1,15 @@
 "use client";
-import React, { useTransition } from "react";
+import React, { use, useEffect, useTransition } from "react";
 import { useGame } from "./GameContext";
 import { useRouter } from "next/navigation";
-
+import { useWindowSize } from "react-use";
+import Confetti from "react-confetti";
+import * as motion from "motion/react-client";
 export default function PlayAgain() {
   const [isPending, startTransition] = useTransition();
   const { setTimeRemaining, setIsGameOver, setScore } = useGame();
   const router = useRouter();
+  const { width, height } = useWindowSize();
 
   async function handlePlayAgain() {
     // 1) Reset on server side
@@ -18,11 +21,14 @@ export default function PlayAgain() {
   }
 
   return (
-    <button
-      onClick={handlePlayAgain}
-      className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-    >
-      {isPending ? "Loading..." : "Play Again"}
-    </button>
+    <div className="p-5 text-center text-2xl">
+      <Confetti width={width} height={height} />
+      <button
+        onClick={handlePlayAgain}
+        className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+      >
+        {isPending ? "Loading..." : "Play Again"}
+      </button>
+    </div>
   );
 }

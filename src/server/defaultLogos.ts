@@ -190,7 +190,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/lg.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/lg.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=600&format=png&retina=true",
     name: "LG",
     isDefault: true,
     cropX: 50,
@@ -199,7 +199,7 @@ export const defaultLogos = [
     cropHeight: 50,
   },
   {
-    url: "https://img.logo.dev/shopify.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=300&format=png&retina=true",
+    url: "https://img.logo.dev/shopify.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=600&format=png&retina=true",
     name: "Shopify",
     isDefault: true,
     cropX: 50,

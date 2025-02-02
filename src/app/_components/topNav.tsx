@@ -5,14 +5,19 @@ import { UploadButton } from "../../utils/uploadthing";
 import { useRouter } from "next/navigation";
 import { useGame } from "./GameContext";
 import { useEffect } from "react";
+import { time } from "console";
 export function TopNav() {
   const router = useRouter();
-  const { score, gameTimeRemaining, setGameTimeRemaining, setIsGameOver, isGameStarted } =
-    useGame();
+  const {
+    score,
+    gameTimeRemaining,
+    setGameTimeRemaining,
+    setIsGameOver,
+    isGameStarted,
+  } = useGame();
 
   useEffect(() => {
-    if(!isGameStarted) return;
-
+    if (!isGameStarted) return;
 
     const timer =
       gameTimeRemaining > 0 &&
@@ -21,6 +26,7 @@ export function TopNav() {
           if (prev <= 1) {
             setIsGameOver(true);
             clearInterval(timer as NodeJS.Timeout);
+
             return 0;
           }
           return prev - 1;

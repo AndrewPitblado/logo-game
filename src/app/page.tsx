@@ -1,6 +1,7 @@
 import { SignedOut, SignedIn } from "@clerk/nextjs";
 
 import LogoQuiz from "~/app/_components/LogoQuiz";
+import React from "react";
 
 export const dynamic = "force-dynamic";
 

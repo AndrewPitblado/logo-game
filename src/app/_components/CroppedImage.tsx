@@ -4,7 +4,7 @@ import { Param } from "drizzle-orm";
 import { useState, useEffect } from "react";
 import ReactCrop, { defaultCrop, type Crop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
-
+import * as motion from "motion/react-client";
 interface CroppedImageProps {
   src: string;
   alt: string;
@@ -74,20 +74,26 @@ export function CroppedImage({ src, alt, defaultCrop }: CroppedImageProps) {
     <div className="relative h-[350px] w-[350px] overflow-hidden rounded-lg border-2 border-gray-700">
       {crop && (
         <div className="relative h-full w-full">
-          <img
-            src={src}
-            alt={alt}
-            className="absolute transform object-cover"
-            style={{
-              maxWidth: "none",
-              maxHeight: "none",
-              width: `${dimensions.width}px`,
-              height: `${dimensions.height}px`,
-              transform: `translate(-${crop.x}%, -${crop.y}%) scale(${scale}) rotate(${rotation}deg)`,
-              transformOrigin: "center center",
-              imageRendering: "auto", // Changed from pixelated for better quality
-            }}
-          />
+          <motion.div
+            layoutId="image"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <img
+              src={src}
+              alt={alt}
+              className="absolute transform object-cover"
+              style={{
+                maxWidth: "none",
+                maxHeight: "none",
+                width: `${dimensions.width}px`,
+                height: `${dimensions.height}px`,
+                transform: `translate(-${crop.x}%, -${crop.y}%) scale(${scale}) rotate(${rotation}deg)`,
+                transformOrigin: "center center",
+                imageRendering: "auto", // Changed from pixelated for better quality
+              }}
+            />
+          </motion.div>
         </div>
       )}
     </div>

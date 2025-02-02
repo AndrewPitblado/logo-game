@@ -1,8 +1,17 @@
 "use client";
+import { useEffect } from "react";
 import { useGame } from "./GameContext";
 
 export function ScoreBoard() {
-  const { score, totalLogos, timeRemaining, incorrectGuesses } = useGame();
+  const {
+    score,
+    totalLogos,
+    isGameOver,
+    timeRemaining,
+    setTimeRemaining,
+    incorrectGuesses,
+  } = useGame();
+
   return (
     <div className="mb-6 flex w-full justify-around rounded-lg bg-blue-400 p-4 text-center">
       <div>
