@@ -117,12 +117,18 @@ export function LogoQuizForm({
           placeholder="What logo is this?"
           className="bg-black-500 rounded border bg-gray-50 px-4 py-2 text-gray-500"
         />
-        <button
-          type="submit"
-          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+        <motion.a
+          whileHover={{ scale: 1.2 }}
+          onHoverStart={(event) => {}}
+          onHoverEnd={(event) => {}}
         >
-          Submit Guess
-        </button>
+          <button
+            type="submit"
+            className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+          >
+            Submit Guess
+          </button>
+        </motion.a>
 
         {message && (
           <div

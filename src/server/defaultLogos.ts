@@ -292,9 +292,5 @@ export const defaultLogos = [
     url: "https://img.logo.dev/nike.com?token=pk_G5936h44REiL0bO_Jbt2-w&size=600&format=png&retina=true",
     name: "Nike",
     isDefault: true,
-    cropX: 50,
-    cropY: 50,
-    cropWidth: 50,
-    cropHeight: 50,
   },
 ];
