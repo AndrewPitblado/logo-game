@@ -4,6 +4,7 @@ import { useGame } from "./GameContext";
 import { useRouter } from "next/navigation";
 import { resetGameProgress } from "~/server/queries";
 import * as motion from "motion/react-client";
+import { set } from "zod";
 interface LogoQuizFormProps {
   logoName: string;
   onCorrectGuessAction: (arg0: number) => Promise<void>;
@@ -17,6 +18,7 @@ export function LogoQuizForm({
   const [message, setMessage] = useState("");
   const {
     timeRemaining,
+    setGameTimeRemaining,
     setTimeRemaining,
     incorrectGuesses,
     setIncorrectGuesses,
@@ -117,8 +119,8 @@ export function LogoQuizForm({
           placeholder="What logo is this?"
           className="bg-black-500 rounded border bg-gray-50 px-4 py-2 text-gray-500"
         />
-        <motion.a
-          whileHover={{ scale: 1.2 }}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
           onHoverStart={(event) => {}}
           onHoverEnd={(event) => {}}
         >
@@ -128,28 +130,43 @@ export function LogoQuizForm({
           >
             Submit Guess
           </button>
-        </motion.a>
+        </motion.button>
 
         {message && (
-          <div
-            className={
-              message === "Correct!" ? "text-green-500" : "text-red-500"
-            }
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
           >
-            {message}
-          </div>
+            <div
+              className={
+                message === "Correct!"
+                  ? "font-xl text-green-500"
+                  : "font-xl text-red-500"
+              }
+            >
+              {message}
+            </div>
+          </motion.div>
         )}
-        <button
-          onClick={async () => {
-            await fetch("/api/reset-game", { method: "POST" });
-            setScore(0);
-            setIsGameStarted(false);
-            router.refresh();
-          }}
-          className="mt-4 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.5 }}
+          whileTap={{ scale: 0.9 }}
         >
-          Reset Game
-        </button>
+          <button
+            onClick={async () => {
+              await fetch("/api/reset-game", { method: "POST" });
+              setScore(0);
+              setGameTimeRemaining(300);
+              setIncorrectGuesses(0);
+              router.refresh();
+            }}
+            className="mt-4 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
+          >
+            Reset Game
+          </button>
+        </motion.button>
       </form>
     </motion.div>
   );
