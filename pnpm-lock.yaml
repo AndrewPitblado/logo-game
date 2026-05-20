@@ -97,7 +97,7 @@ importers:
         specifier: ^0.2.3
         version: 0.2.3(eslint@8.57.1)
       postcss:
-        specifier: ^8.5.10
+        specifier: ^8.5.15
         version: 8.5.15
       prettier:
         specifier: ^3.4.2
