@@ -35,7 +35,7 @@ importers:
         specifier: ^0.45.2
         version: 0.45.2(@neondatabase/serverless@0.10.4)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(postgres@3.4.9)
       effect:
-        specifier: ^3.21.4
+        specifier: ^3.20.0
         version: 3.21.4
       geist:
         specifier: ^1.7.2
